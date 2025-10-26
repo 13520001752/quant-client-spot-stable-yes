@@ -1,0 +1,95 @@
+base:
+  application:
+    name: quant-client
+
+server:
+  port: 9001
+#  servlet:
+#    context-path: /${base.application.name}
+  undertow:
+    io-threads: 200
+    worker-threads: 2000
+    buffer-size: 1024
+    direct-buffers: true
+
+spring:
+  application:
+    name: ${base.application.name}
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/quantv3?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&allowMultiQueries=true
+#    url: jdbc:mysql://localhost:3306/quant2?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: Aa@123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 5000
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+
+#配置SQL输出语句
+mybatis-plus:
+  type-aliases-package: com.magic.mybatisplus.pojo
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    #开启驼峰映射
+    map-underscore-to-camel-case: true
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+quant-net1:
+  # berichfromtoday
+  # apiKey: dbWdY6P1DfEnXwOFk6AFo4BhwSiAv84yTxdDMjof0YsCwP0ZGc8pThkinQjHEWW1
+  # apiSecret: to883h8Zt2yqG47TOVVT8C5jgPFNaFGowJ2SH0W6Vu6IRppxPnNHsI9ANxTZtg4h
+
+  # berichfromtoday3
+  apiKey: o6VZXlZsTkbangUHHJTPQ5cbcJFot4rvQyJelyoC6mQN2pSZxeYVvopVVzn7boG4
+  apiSecret: LUYIh5tcHhImcdE8H0d5EZNnfxZ0QCFTV4oxrgMmBl2PQKHw9BuOUy5PVil0lAm7
+
+#  qixianbian05
+#  apiKey: "sNNZzyg9ZxOPQ8rR0OPmO2UGGUNioGQIyGqugj1pO5Suw4maqbfAt4LLgTbtbxfq"
+#  apiSecret: "8dzLogAGgKucyOKuc9q1LxxmxKfTPKKE37RNQfqZ6k4a2D2pnLx2Q95xSkpNJpEI"
+
+#  100.myquant@gmail.com
+#  1-100-myquant
+#  apiKey: "BQPPirmuZHFuMWue3etlTzsHGuVqfiyvi3hsi3PMgYf3Ue17v729jA4ssg78sgrJ"
+#  apiSecret: "dRpCKyjKSWsr50M0ZutjtGRWlCfEwpBTclgF3bSPSLICUtyvWeiFihgXGEykWjje"
+
+  leverageMaxConfig: 10
+  leverageMaxAllowed: 10
+
+  symbol: DOGEUSDT
+
+  amountHoldMax: 700      # 最大持仓量
+  amountHoldMin:  0     # 最小持仓量
+  amountInit:  210         # 初始购买量
+
+  amountOrderOpen: 70
+  amountOrderClose: 70
+
+  percentOpen:  0.99     # 当前价格 *  0.9980 开仓, 跌0.0050 买入
+  percentClose: 1.01     # 当前价格 *  1.0025 平仓, 涨0.0055 卖出
+  percentStop: 1.003     # 止损价 = 系统提供的爆仓价 * 1.003
+
+binance-price-tick-size:
+  map:
+    BTCUSDT: 1
+    ETHUSDT: 1
+    AAVEUSDT: 2
+    DOGEUSDT: 5
+
+server-url:
+  daemon: "http://127.0.0.1:20000"
+
+quant:
+  configId: 34

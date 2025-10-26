@@ -1,0 +1,463 @@
+
+
+#  100.myquant@gmail.com
+#  1-100-myquant : 只读
+  apiKey: "zQYStEgux6cF8Zr7j7FYKVRzXarrTXea7xY5NZMTdlxxwDzyvrilYFfandufYNou"
+  apiSecret: "vlcNugd5994cPxTlfQDy0PMKrkp4iN3R10IFyf26jpDwbh2ktKqut8jd4WgZUeUL"
+
+
+订阅的日线更新结构
+//  {
+//          "e":"continuous_kline",
+//          "E":1688138805530,
+//          "ps":"ETHUSDT",
+//          "ct":"PERPETUAL",
+//          "k":{
+//              "t":1688083200000,
+//              "T":1688169599999,
+//              "i":"1d",
+//              "f":3004194591855,
+//              "L":3007681162313,
+//              "o":"1851.18",
+//              "c":"1848.48",
+//              "h":"1913.92",
+//              "l":"1820.00",
+//              "v":"3590956.727",
+//              "n":2627963,
+//              "x":false,
+//              "q":"6721933996.53361",
+//              "V":"1793491.056",
+//              "Q":"3357846554.59924",
+//              "B":"0"
+//          }
+//  }
+
+
+// 下单-无成交，收到的消息
+UserEvent:{
+    "e": "ACCOUNT_CONFIG_UPDATE",
+    "T": 1688225913154,
+    "E": 1688225913158,
+    "ac": {
+        "s": "ETHUSDT",
+        "l": 10
+    }
+}
+
+// 下单-无成交，收到的消息
+
+UserEvent:{
+    "e": "ORDER_TRADE_UPDATE",
+    "T": 1688225928382,
+    "E": 1688225928386,
+    "o": {
+        "s": "ETHUSDT",
+        "c": "android_zEby0wegp9BdG6iZBXYR",
+        "S": "BUY",
+        "o": "LIMIT",
+        "f": "GTC",
+        "q": "0.100",
+        "p": "1800",
+        "ap": "0",
+        "sp": "0",
+        "x": "NEW",         <<<<<<<<<<<<<<<<<<<<<<<<<<
+        "X": "NEW",         <<<<<<<<<<<<<<<<<<<<<<<<<<
+        "i": 8389765606078157536,
+        "l": "0",
+        "z": "0",
+        "L": "0",
+        "n": "0",
+        "N": "USDT",
+        "T": 1688225928382,
+        "t": 0,
+        "b": "180",
+        "a": "0",
+        "m": false,
+        "R": false,
+        "wt": "CONTRACT_PRICE",
+        "ot": "LIMIT",
+        "ps": "BOTH",
+        "cp": false,
+        "rp": "0",
+        "pP": false,
+        "si": 0,
+        "ss": 0
+    }
+}
+
+// 撤销订单收到的消息
+UserEvent:{
+    "e": "ORDER_TRADE_UPDATE",
+    "T": 1688225997049,
+    "E": 1688225997052,
+    "o": {
+        "s": "ETHUSDT",
+        "c": "android_zEby0wegp9BdG6iZBXYR",
+        "S": "BUY",
+        "o": "LIMIT",
+        "f": "GTC",
+        "q": "0.100",
+        "p": "1800",
+        "ap": "0",
+        "sp": "0",
+        "x": "CANCELED",        <<<<<<<<<<<<<<<<<<
+        "X": "CANCELED",        <<<<<<<<<<<<<<<
+        "i": 8389765606078157536,
+        "l": "0",
+        "z": "0",
+        "L": "0",
+        "n": "0",
+        "N": "USDT",
+        "T": 1688225997049,
+        "t": 0,
+        "b": "0",
+        "a": "0",
+        "m": false,
+        "R": false,
+        "wt": "CONTRACT_PRICE",
+        "ot": "LIMIT",
+        "ps": "BOTH",
+        "cp": false,
+        "rp": "0",
+        "pP": false,
+        "si": 0,
+        "ss": 0
+    }
+}
+
+
+------------------------
+下单有成交，产生持仓
+
+2023-07-01 15:42:50.720 INFO [OkHttp https://fstream.binance.com/...][QuantService.java:113] - UserEvent:{
+    "e": "ORDER_TRADE_UPDATE",
+    "T": 1688226170314,
+    "E": 1688226170319,
+    "o": {
+        "s": "ETHUSDT",
+        "c": "android_shInF22VFHvnwX8sHIBH",
+        "S": "BUY",
+        "o": "LIMIT",
+        "f": "GTC",
+        "q": "0.003",
+        "p": "1922.20",
+        "ap": "0",
+        "sp": "0",
+        "x": "NEW",
+        "X": "NEW",
+        "i": 8389765606078562516,
+        "l": "0",
+        "z": "0",
+        "L": "0",
+        "n": "0",
+        "N": "USDT",
+        "T": 1688226170314,
+        "t": 0,
+        "b": "5.76660",
+        "a": "0",
+        "m": false,
+        "R": false,
+        "wt": "CONTRACT_PRICE",
+        "ot": "LIMIT",
+        "ps": "BOTH",
+        "cp": false,
+        "rp": "0",
+        "pP": false,
+        "si": 0,
+        "ss": 0
+    }
+}
+2023-07-01 15:42:50.738 INFO [OkHttp https://fstream.binance.com/...][QuantService.java:113] - UserEvent:{
+    "e": "ACCOUNT_UPDATE",
+    "T": 1688226170314,
+    "E": 1688226170319,
+    "a": {
+        "B": [
+            {
+                "a": "USDT",
+                "wb": "998.40131859",
+                "cw": "998.40131859",
+                "bc": "0"
+            }
+        ],
+        "P": [
+            {
+                "s": "ETHUSDT",
+                "pa": "0.003",
+                "ep": "1922.14000000",
+                "cr": "0.63406003",
+                "up": "0.00060341",
+                "mt": "cross",
+                "iw": "0",
+                "ps": "BOTH",
+                "ma": "USDT"
+            }
+        ],
+        "m": "ORDER"
+    }
+}
+2023-07-01 15:42:50.739 INFO [OkHttp https://fstream.binance.com/...][QuantService.java:113] - UserEvent:{
+    "e": "ORDER_TRADE_UPDATE",
+    "T": 1688226170314,
+    "E": 1688226170319,
+    "o": {
+        "s": "ETHUSDT",
+        "c": "android_shInF22VFHvnwX8sHIBH",
+        "S": "BUY",
+        "o": "LIMIT",
+        "f": "GTC",
+        "q": "0.003",
+        "p": "1922.20",
+        "ap": "1922.14000",
+        "sp": "0",
+        "x": "TRADE",           <<<<<<<<<<<<<<<<<<<<<<<<<<
+        "X": "FILLED",          <<<<<<<<<<<<<<<<<<<<<<<<<
+        "i": 8389765606078562516,
+        "l": "0.003",
+        "z": "0.003",
+        "L": "1922.14",
+        "n": "0.00230656",
+        "N": "USDT",
+        "T": 1688226170314,
+        "t": 3108434392,
+        "b": "0",
+        "a": "0",
+        "m": false,
+        "R": false,
+        "wt": "CONTRACT_PRICE",
+        "ot": "LIMIT",
+        "ps": "BOTH",
+        "cp": false,
+        "rp": "0",
+        "pP": false,
+        "si": 0,
+        "ss": 0
+    }
+}
+
+-----------------------------
+全部平仓后，收到的消息
+-----------------------------
+
+
+2023-07-01 15:45:06.684 INFO [OkHttp https://fstream.binance.com/...][QuantService.java:113] - UserEvent:{
+    "e": "ORDER_TRADE_UPDATE",
+    "T": 1688226306294,
+    "E": 1688226306301,
+    "o": {
+        "s": "ETHUSDT",
+        "c": "android_bhbttCwwtxAbOA5c3Zky",
+        "S": "SELL",
+        "o": "MARKET",
+        "f": "GTC",
+        "q": "0.003",
+        "p": "0",
+        "ap": "0",
+        "sp": "0",
+        "x": "NEW",     <<<<<<<<<<<<<<<<<<<<<<<
+        "X": "NEW",     <<<<<<<<<<<<<<<<<<<<<<<<
+        "i": 8389765606078793684,
+        "l": "0",
+        "z": "0",
+        "L": "0",
+        "n": "0",
+        "N": "USDT",
+        "T": 1688226306294,
+        "t": 0,
+        "b": "0",
+        "a": "0",
+        "m": false,
+        "R": true,
+        "wt": "CONTRACT_PRICE",
+        "ot": "MARKET",
+        "ps": "BOTH",
+        "cp": false,
+        "rp": "0",
+        "pP": false,
+        "si": 0,
+        "ss": 0
+    }
+}
+2023-07-01 15:45:06.687 INFO [OkHttp https://fstream.binance.com/...][QuantService.java:113] - UserEvent:{
+    "e": "ACCOUNT_UPDATE",
+    "T": 1688226306294,
+    "E": 1688226306301,
+    "a": {
+        "B": [
+            {
+                "a": "USDT",
+                "wb": "998.39733270",
+                "cw": "998.39733270",
+                "bc": "0"
+            }
+        ],
+        "P": [
+            {
+                "s": "ETHUSDT",
+                "pa": "0",
+                "ep": "0.00000000",
+                "cr": "0.63238003",
+                "up": "0",
+                "mt": "cross",
+                "iw": "0",
+                "ps": "BOTH",
+                "ma": "USDT"
+            }
+        ],
+        "m": "ORDER"
+    }
+}
+2023-07-01 15:45:06.688 INFO [OkHttp https://fstream.binance.com/...][QuantService.java:113] - UserEvent:{
+    "e": "ORDER_TRADE_UPDATE",
+    "T": 1688226306294,
+    "E": 1688226306301,
+    "o": {
+        "s": "ETHUSDT",
+        "c": "android_bhbttCwwtxAbOA5c3Zky",
+        "S": "SELL",
+        "o": "MARKET",
+        "f": "GTC",
+        "q": "0.003",
+        "p": "0",
+        "ap": "1921.58000",
+        "sp": "0",
+        "x": "TRADE",       <<<<<<<<<<<<<<<<<
+        "X": "FILLED",      <<<<<<<<<<<<<<<<
+        "i": 8389765606078793684,
+        "l": "0.003",
+        "z": "0.003",
+        "L": "1921.58",
+        "n": "0.00230589",
+        "N": "USDT",
+        "T": 1688226306294,
+        "t": 3108436057,
+        "b": "0",
+        "a": "0",
+        "m": false,
+        "R": true,
+        "wt": "CONTRACT_PRICE",
+        "ot": "MARKET",
+        "ps": "BOTH",
+        "cp": false,
+        "rp": "-0.00168000",
+        "pP": false,
+        "si": 0,
+        "ss": 0
+    }
+}
+
+
+
+-----------------------------------
+下单使用USDT：100
+
+ UserEvent:{
+    "e": "ORDER_TRADE_UPDATE",
+    "T": 1688285519544,
+    "E": 1688285519548,
+    "o": {
+        "s": "ETHUSDT",
+        "c": "android_RLUT4LHG8NrKwh1dos6x",
+        "S": "BUY",
+        "o": "LIMIT",
+        "f": "GTC",
+        "q": "0.052",
+        "p": "1915.54",
+        "ap": "0",
+        "sp": "0",
+        "x": "NEW",
+        "X": "NEW",
+        "i": 8389765606176779086,
+        "l": "0",
+        "z": "0",
+        "L": "0",
+        "n": "0",
+        "N": "USDT",
+        "T": 1688285519544,
+        "t": 0,
+        "b": "99.60808",
+        "a": "0",
+        "m": false,
+        "R": false,
+        "wt": "CONTRACT_PRICE",
+        "ot": "LIMIT",
+        "ps": "BOTH",
+        "cp": false,
+        "rp": "0",
+        "pP": false,
+        "si": 0,
+        "ss": 0
+    }
+}
+2023-07-02 08:11:59.654 INFO [OkHttp https://fstream.binance.com/...][HelperBinanceUserEvent.java:116] - handleUserEventOrderUpdate ignore unrelated order:android_RLUT4LHG8NrKwh1dos6x
+2023-07-02 08:11:59.654 INFO [OkHttp https://fstream.binance.com/...][HelperBinanceUserEvent.java:33] - UserEvent:{
+    "e": "ACCOUNT_UPDATE",
+    "T": 1688285519544,
+    "E": 1688285519548,
+    "a": {
+        "B": [
+            {
+                "a": "USDT",
+                "wb": "994.62710489",
+                "cw": "994.62710489",
+                "bc": "0"
+            }
+        ],
+        "P": [
+            {
+                "s": "ETHUSDT",
+                "pa": "0.052",
+                "ep": "1915.47000000",
+                "cr": "0.78994021",
+                "up": "0",
+                "mt": "cross",
+                "iw": "0",
+                "ps": "BOTH",
+                "ma": "USDT"
+            }
+        ],
+        "m": "ORDER"
+    }
+}
+2023-07-02 08:11:59.655 INFO [OkHttp https://fstream.binance.com/...][HelperBinanceUserEvent.java:82] - BalanceUpdate, coin:USDT, balance:994.62710489/994.62710489
+2023-07-02 08:11:59.655 INFO [OkHttp https://fstream.binance.com/...][HelperBinanceUserEvent.java:96] - BalanceUpdate, coin:ETHUSDT, position:0.052
+2023-07-02 08:11:59.655 INFO [OkHttp https://fstream.binance.com/...][HelperBinanceUserEvent.java:33] - UserEvent:{
+    "e": "ORDER_TRADE_UPDATE",
+    "T": 1688285519544,
+    "E": 1688285519548,
+    "o": {
+        "s": "ETHUSDT",
+        "c": "android_RLUT4LHG8NrKwh1dos6x",
+        "S": "BUY",
+        "o": "LIMIT",
+        "f": "GTC",
+        "q": "0.052",
+        "p": "1915.54",
+        "ap": "1915.47000",
+        "sp": "0",
+        "x": "TRADE",
+        "X": "FILLED",
+        "i": 8389765606176779086,
+        "l": "0.052",
+        "z": "0.052",
+        "L": "1915.47",
+        "n": "0.03984177",
+        "N": "USDT",
+        "T": 1688285519544,
+        "t": 3109294027,
+        "b": "0",
+        "a": "0",
+        "m": false,
+        "R": false,
+        "wt": "CONTRACT_PRICE",
+        "ot": "LIMIT",
+        "ps": "BOTH",
+        "cp": false,
+        "rp": "0",
+        "pP": false,
+        "si": 0,
+        "ss": 0
+    }
+}
+
+

@@ -1,0 +1,67 @@
+base:
+  application:
+    name: quant-net-1
+
+server:
+  port: 9000
+#  servlet:
+#    context-path: /${base.application.name}
+
+spring:
+  application:
+    name: ${base.application.name}
+
+quant-net1:
+#  qixianbian05
+#  apiKey: "sNNZzyg9ZxOPQ8rR0OPmO2UGGUNioGQIyGqugj1pO5Suw4maqbfAt4LLgTbtbxfq"
+#  apiSecret: "8dzLogAGgKucyOKuc9q1LxxmxKfTPKKE37RNQfqZ6k4a2D2pnLx2Q95xSkpNJpEI"
+
+#  100.myquant@gmail.com
+#  1-100-myquant
+  apiKey: "BQPPirmuZHFuMWue3etlTzsHGuVqfiyvi3hsi3PMgYf3Ue17v729jA4ssg78sgrJ"
+  apiSecret: "dRpCKyjKSWsr50M0ZutjtGRWlCfEwpBTclgF3bSPSLICUtyvWeiFihgXGEykWjje"
+
+  leverageMaxConfig: 12
+  leverageMaxAllowed: 12
+
+  symbol: AAVEUSDT
+
+  amountHoldMax: 20      # 最大持仓量
+  amountHoldMin:  1      # 最小持仓量
+  amountInit:  4         # 初始购买量
+
+  amountOrderOpen: 1
+  amountOrderClose: 1
+
+#  percentOpen:  0.995       # 当前价格 *  0.9980 开仓, 跌0.0050 买入
+#  percentClose: 1.0055      # 当前价格 *  1.0025 平仓, 涨0.0055 卖出
+#  percentStop: 1.003        # 止损价 = 系统提供的爆仓价 * 1.003
+
+  percentOpen:  0.995       # 当前价格 *  0.9980 开仓, 跌0.0050 买入
+  percentClose: 1.0055      # 当前价格 *  1.0025 平仓, 涨0.0055 卖出
+  percentStop: 1.003        # 止损价 = 系统提供的爆仓价 * 1.003
+
+#  percentOpen:  0.998       # 当前价格 *  0.9980 开仓, 跌0.0020 买入
+#  percentClose: 1.0025      # 当前价格 *  1.0025 平仓, 涨0.0025 卖出
+
+#  percentOpen:  0.002       # 跌 5.0/1000 买入
+#  percentClose: 0.0025      # 涨 5.5/1000 卖出
+
+#  symbol: BTCUSDT
+#  amountTotal:      0.025     # amountTotal = amountSell + amountReserved
+#  amountSell:       0.024
+#  amountReserved:   0.001
+#  amountOrderSell:  0.002     # 24/2 = 12
+#
+#  amountBuy:        0.045     # 与 amountSell, amountTotal 没有关系
+#  amountOrderBuy:   0.003     # 45/3 = 15 单
+#
+#  percentBuy: 0.005       # 跌 5.0/1000 买入
+#  percentSell: 0.0055     # 涨 5.5/1000 卖出
+
+binance-price-tick-size:
+  map:
+    BTCUSDT: 1
+    ETHUSDT: 1
+    AAVEUSDT: 2
+    DOGEUSDT: 5

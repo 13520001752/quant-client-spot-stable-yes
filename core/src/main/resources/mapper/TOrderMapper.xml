@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.magic.mybatisplus.mapper.TOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.magic.mybatisplus.entity.TOrder">
+        <id column="order_id" property="orderId" />
+        <result column="order_id_link" property="orderIdLink" />
+        <result column="exchange_id" property="exchangeId" />
+        <result column="api_key" property="apiKey" />
+        <result column="symbol" property="symbol" />
+        <result column="order_side" property="orderSide" />
+        <result column="order_type" property="orderType" />
+        <result column="order_type_original" property="orderTypeOriginal" />
+        <result column="order_price_original" property="orderPriceOriginal" />
+        <result column="order_price_average" property="orderPriceAverage" />
+        <result column="order_quantity_original" property="orderQuantityOriginal" />
+        <result column="order_quantity_execute" property="orderQuantityExecute" />
+        <result column="cumulative_quote" property="cumulativeQuote" />
+        <result column="close_position" property="closePosition" />
+        <result column="price_stop" property="priceStop" />
+        <result column="reduce_only" property="reduceOnly" />
+        <result column="time_in_force" property="timeInForce" />
+        <result column="position_side" property="positionSide" />
+        <result column="order_status" property="orderStatus" />
+        <result column="pnl" property="pnl" />
+        <result column="fee_coin" property="feeCoin" />
+        <result column="fee_amount" property="feeAmount" />
+        <result column="order_time_create" property="orderTimeCreate" />
+        <result column="order_time_update" property="orderTimeUpdate" />
+        <result column="track_id" property="trackId" />
+        <result column="track_timestamp" property="trackTimestamp" />
+        <result column="deleted" property="deleted" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+        <result column="task_id" property="taskId" />
+    </resultMap>
+
+</mapper>

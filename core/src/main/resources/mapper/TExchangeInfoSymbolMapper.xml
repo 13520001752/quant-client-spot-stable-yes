@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.magic.mybatisplus.mapper.TExchangeInfoSymbolMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.magic.mybatisplus.entity.TExchangeInfoSymbol">
+        <id column="id" property="id" />
+        <result column="api_key" property="apiKey" />
+        <result column="exchange_name" property="exchangeName" />
+        <result column="symbol" property="symbol" />
+        <result column="pair" property="pair" />
+        <result column="contract_type" property="contractType" />
+        <result column="date_delivery" property="dateDelivery" />
+        <result column="date_onboard" property="dateOnboard" />
+        <result column="status" property="status" />
+        <result column="margin_percent_maint" property="marginPercentMaint" />
+        <result column="margin_percent_required" property="marginPercentRequired" />
+        <result column="asset_base" property="assetBase" />
+        <result column="asset_quote" property="assetQuote" />
+        <result column="asset_margin" property="assetMargin" />
+        <result column="precision_price" property="precisionPrice" />
+        <result column="precision_quantity" property="precisionQuantity" />
+        <result column="precision_base_asset" property="precisionBaseAsset" />
+        <result column="precision_quote" property="precisionQuote" />
+        <result column="underlying_type" property="underlyingType" />
+        <result column="underlying_sub_type" property="underlyingSubType" />
+        <result column="settle_plan" property="settlePlan" />
+        <result column="trigger_protect" property="triggerProtect" />
+        <result column="filter_price_max" property="filterPriceMax" />
+        <result column="filter_price_min" property="filterPriceMin" />
+        <result column="filter_price_tick_size" property="filterPriceTickSize" />
+        <result column="filter_lot_qty_max" property="filterLotQtyMax" />
+        <result column="filter_lot_qty_min" property="filterLotQtyMin" />
+        <result column="filter_lot_step_size" property="filterLotStepSize" />
+        <result column="filter_market_lot_qty_max" property="filterMarketLotQtyMax" />
+        <result column="filter_market_lot_qty_min" property="filterMarketLotQtyMin" />
+        <result column="filter_market_lot_step_size" property="filterMarketLotStepSize" />
+        <result column="filter_order_num_max" property="filterOrderNumMax" />
+        <result column="filter_stop_order_num_max" property="filterStopOrderNumMax" />
+        <result column="filter_notional_min" property="filterNotionalMin" />
+        <result column="filter_multiplier_up" property="filterMultiplierUp" />
+        <result column="filter_multiplier_down" property="filterMultiplierDown" />
+        <result column="filter_multiplier_decimal" property="filterMultiplierDecimal" />
+        <result column="liquidation_fee" property="liquidationFee" />
+        <result column="market_take_bound" property="marketTakeBound" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+</mapper>

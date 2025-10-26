@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.magic.mybatisplus.mapper.TConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.magic.mybatisplus.entity.TConfig">
+        <id column="id" property="id" />
+        <result column="accountName" property="accountName" />
+        <result column="accountAlias" property="accountAlias" />
+        <result column="apiKey" property="apiKey" />
+        <result column="apiSecret" property="apiSecret" />
+        <result column="apiPhrase" property="apiPhrase" />
+        <result column="serverName" property="serverName" />
+        <result column="serverIP" property="serverIP" />
+        <result column="serverPort" property="serverPort" />
+        <result column="symbol" property="symbol" />
+        <result column="leverage" property="leverage" />
+        <result column="positionMax" property="positionMax" />
+        <result column="positionMin" property="positionMin" />
+        <result column="positionInit" property="positionInit" />
+        <result column="amountOpen" property="amountOpen" />
+        <result column="amountClose" property="amountClose" />
+        <result column="percentOpen" property="percentOpen" />
+        <result column="percentClose" property="percentClose" />
+        <result column="percentStop" property="percentStop" />
+        <result column="adminName" property="adminName" />
+        <result column="adminPhone" property="adminPhone" />
+        <result column="adminEmail" property="adminEmail" />
+        <result column="larkName1" property="larkName1" />
+        <result column="larkName2" property="larkName2" />
+        <result column="tsCreated" property="tsCreated" />
+        <result column="tsUpdated" property="tsUpdated" />
+        <result column="statusService" property="statusService" />
+        <result column="statusQuant" property="statusQuant" />
+        <result column="pingTime" property="pingTime" />
+        <result column="priceLast" property="priceLast" />
+        <result column="priceLastMatch" property="priceLastMatch" />
+        <result column="deleted" property="deleted" />
+        <result column="configStatus" property="configStatus" />
+    </resultMap>
+
+</mapper>

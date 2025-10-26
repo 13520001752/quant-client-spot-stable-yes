@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.magic.mybatisplus.mapper.TBalanceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.magic.mybatisplus.entity.TBalance">
+        <id column="id" property="id" />
+        <result column="api_key_id" property="apiKeyId" />
+        <result column="asset" property="asset" />
+        <result column="wallet_balance" property="walletBalance" />
+        <result column="unrealized_profit" property="unrealizedProfit" />
+        <result column="margin_balance" property="marginBalance" />
+        <result column="maint_margin" property="maintMargin" />
+        <result column="initial_margin" property="initialMargin" />
+        <result column="position_Initial_margin" property="positionInitialMargin" />
+        <result column="open_order_initial_margin" property="openOrderInitialMargin" />
+        <result column="max_withdraw_amount" property="maxWithdrawAmount" />
+        <result column="cross_wallet_balance" property="crossWalletBalance" />
+        <result column="cross_unPnl" property="crossUnpnl" />
+        <result column="available_balance" property="availableBalance" />
+        <result column="margin_available" property="marginAvailable" />
+        <result column="updated_time" property="updatedTime" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+</mapper>

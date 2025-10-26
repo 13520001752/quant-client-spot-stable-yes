@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.magic.mybatisplus.mapper.TKlineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.magic.mybatisplus.entity.TKline">
+        <result column="id" property="id" />
+        <result column="exchange_id" property="exchangeId" />
+        <result column="type" property="type" />
+        <result column="symbol" property="symbol" />
+        <result column="kline_id" property="klineId" />
+        <result column="kline_interval" property="klineInterval" />
+        <result column="price_high" property="priceHigh" />
+        <result column="price_low" property="priceLow" />
+        <result column="price_open" property="priceOpen" />
+        <result column="price_close" property="priceClose" />
+        <result column="price_average" property="priceAverage" />
+        <result column="volatility" property="volatility" />
+        <result column="volume" property="volume" />
+        <result column="transaction_num" property="transactionNum" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+</mapper>
