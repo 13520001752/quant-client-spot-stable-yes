@@ -546,7 +546,7 @@ public class QuantTask {
         mapMiniTicker.put(ticker.getSymbol(), ticker);
 
         if (ticker.getSymbol().equals(config.getSymbol())) {
-            if (countIdMiniTicker.incrementAndGet() % 3 * 60 == 0) {
+            if (countIdMiniTicker.incrementAndGet() % 30 * 60 == 0) {
                 log.info("symbol:{}, price:{}, ts:{}", ticker.getSymbol(), ticker.getPriceClose(), ticker.getEventTime());
             }
         }
@@ -583,7 +583,7 @@ public class QuantTask {
 
                 BigDecimal total = b.getFree().add(b.getLocked());
                 if (total.compareTo(BigDecimal.ZERO) > 0) {
-                    log.info("BalanceUpdate, coin:{}, balance:{}/{}", b.getAsset(), b.getFree(), b.getLocked());
+                    log.info("BalanceUpdate, coin:{}, balance free:{}, locked:{}", b.getAsset(), b.getFree(), b.getLocked());
                 }
             }
         }
@@ -612,18 +612,32 @@ public class QuantTask {
         String assetQuote;
         String assetBase;
 
-        switch (symbol) {
-            case "USDCUSDT":
-                assetBase = "USDC";
-                assetQuote = "USDT";
-                break;
-            case "FDUSDUSDT":
-                assetBase = "FDUSD";
-                assetQuote = "USDT";
-                break;
-            default:
-                log.error("2000 OrderUpdate unsupported symbol:{}", symbol);
-                return -1;
+//        switch (symbol) {
+//            case "USDCUSDT":
+//                assetBase = "USDC";
+//                assetQuote = "USDT";
+//                break;
+//            case "FDUSDUSDT":
+//                assetBase = "FDUSD";
+//                assetQuote = "USDT";
+//                break;
+//            default:
+//                log.error("2000 OrderUpdate unsupported symbol:{}", symbol);
+//                return -1;
+//        }
+
+        if (symbol.endsWith("USDT")) {
+            assetBase  = symbol.replace("USDT", "");
+            assetQuote = "USDT";
+        } else if (symbol.endsWith("USDC")) {
+            assetBase  = symbol.replace("USDC", "");
+            assetQuote = "USDC";
+        } else if (symbol.endsWith("FDUSD")) {
+            assetBase  = symbol.replace("FDUSD", "");
+            assetQuote = "FDUSD";
+        } else {
+            log.error("2000 OrderUpdate unsupported symbol:{}", symbol);
+            return -1;
         }
 
         int        leverageMaxConfig        = config.getLeverage();
