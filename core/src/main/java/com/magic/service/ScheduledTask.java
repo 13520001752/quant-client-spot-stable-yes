@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ScheduledTask {
 
-    @Scheduled(fixedDelay = 60 * 1000)
+    @Scheduled(fixedDelay = 3 * 60 * 1000)
     public void miniTickerMonitor() {
         log.info("checkWebSocketStatus hashmapQuantTask num:{}", ServiceController.hashmapQuantTask.size());
 

@@ -486,7 +486,7 @@ public class QuantTask {
             return 0;
         }
 
-        log.info("handle userData:{}", jo.toStringPretty());
+        // log.info("handle userData:{}", jo.toStringPretty());
 
         JSONObject joData = jo.getJSONObject("data");
         if (joData == null) {
@@ -546,7 +546,7 @@ public class QuantTask {
         mapMiniTicker.put(ticker.getSymbol(), ticker);
 
         if (ticker.getSymbol().equals(config.getSymbol())) {
-            if (countIdMiniTicker.incrementAndGet() % 30 == 0) {
+            if (countIdMiniTicker.incrementAndGet() % 3 * 60 == 0) {
                 log.info("symbol:{}, price:{}, ts:{}", ticker.getSymbol(), ticker.getPriceClose(), ticker.getEventTime());
             }
         }
