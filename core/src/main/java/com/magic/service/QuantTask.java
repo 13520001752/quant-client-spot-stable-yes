@@ -828,8 +828,8 @@ public class QuantTask {
         int newScale = priceScale;
         log.info("OrderUpdate price scale {}:{}", symbol, newScale);
 
-        priceOpen  = priceAvg.subtract(percentOpen).setScale(newScale, RoundingMode.HALF_DOWN).stripTrailingZeros();
-        priceClose = priceAvg.add(percentClose).setScale(newScale, RoundingMode.HALF_UP).stripTrailingZeros();
+        priceOpen  = priceAvg.subtract(percentOpen).setScale(newScale, RoundingMode.HALF_UP).stripTrailingZeros();
+        priceClose = priceAvg.add(percentClose).setScale(newScale, RoundingMode.HALF_DOWN).stripTrailingZeros();
         priceAvg   = priceAvg.setScale(newScale, RoundingMode.HALF_UP).stripTrailingZeros();
 
         // 生成新的订单ID
