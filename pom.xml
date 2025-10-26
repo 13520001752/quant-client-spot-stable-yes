@@ -15,7 +15,7 @@
 
 
     <groupId>com.magic</groupId>
-    <artifactId>quant-client-spot-v1</artifactId>
+    <artifactId>quant-client-spot-stable-yes</artifactId>
     <version>1.0.0</version>
 
     <properties>

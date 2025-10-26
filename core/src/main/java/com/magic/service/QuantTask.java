@@ -767,7 +767,7 @@ public class QuantTask {
             return -1;
         } else {
             log.info("OrderUpdate orderCancelAll done, symbol:{}", symbol);
-            QuantUtil.waitMs(50);
+            QuantUtil.waitMs(10);
         }
 
         boolean canOpen  = false;
@@ -828,14 +828,9 @@ public class QuantTask {
         int newScale = priceScale;
         log.info("OrderUpdate price scale {}:{}", symbol, newScale);
 
-        priceClose = priceAvg.multiply(percentClose).setScale(newScale, RoundingMode.HALF_UP);
-        priceOpen  = priceAvg.multiply(percentOpen).setScale(newScale, RoundingMode.HALF_DOWN);
-        priceAvg   = priceAvg.setScale(newScale, RoundingMode.HALF_UP);
-
-        BigDecimal percentOpenActual  = priceAvg.subtract(priceOpen).divide(priceAvg, 5, RoundingMode.DOWN);
-        BigDecimal percentCloseActual = priceAvg.subtract(priceClose).divide(priceAvg, 5, RoundingMode.DOWN).negate();
-        percentOpenActual  = BigDecimal.ONE.subtract(percentOpenActual);
-        percentCloseActual = BigDecimal.ONE.add(percentCloseActual);
+        priceOpen  = priceAvg.subtract(percentOpen).setScale(newScale, RoundingMode.HALF_DOWN).stripTrailingZeros();
+        priceClose = priceAvg.add(percentClose).setScale(newScale, RoundingMode.HALF_UP).stripTrailingZeros();
+        priceAvg   = priceAvg.setScale(newScale, RoundingMode.HALF_UP).stripTrailingZeros();
 
         // 生成新的订单ID
         HashMap<String, String> hashMapOrderId  = HelperOrder.generateOrderIdLink_Normal(configId, seqId + 1);
